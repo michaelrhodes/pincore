@@ -28,7 +28,13 @@ function pincore (config) {
 
       body._method = method
       body.publishable_api_key = key
-      jsonp(url + '.json' + qs(body), cb)
+      jsonp(url + '.json' + qs(body), then)
+      
+      function then (err, json) {
+        err ? cb(err) : json && json.error ?
+        cb(new Error(json.error_description)) :
+        cb(null, json)
+      }
     }
   }
 }

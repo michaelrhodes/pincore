@@ -38,7 +38,9 @@ function pincore (config) {
       if (body) opts.body = body
 
       req.concat(opts, function (err, res, json) {
-        err ? cb(err) : cb(null, json, res)
+        err ? cb(err) : json && json.error ?
+        cb(new Error(json.error_description)) :
+        cb(null, json, res)
       })
     }
   }

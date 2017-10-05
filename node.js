@@ -31,13 +31,11 @@ function pincore (config) {
       var opts = {
         method: method,
         url: url,
-        headers: headers
+        headers: headers,
+        json: true
       }
 
-      if (body) {
-        opts.body = body
-        opts.json = true
-      }
+      if (body) opts.body = body
 
       req.concat(opts, function (err, res, json) {
         err ? cb(err) : cb(null, json, res)

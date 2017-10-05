@@ -32,7 +32,7 @@ function pincore (config) {
       
       function then (err, json) {
         err ? cb(err) : json && json.error ?
-        cb(new Error(json.error_description)) :
+        cb(new Error(json.error_description), json) :
         cb(null, json)
       }
     }

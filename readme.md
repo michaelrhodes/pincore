@@ -1,17 +1,17 @@
-# pincore
+# simple-pin
 
-pincore is a simple, isomorphic client for the [Pin Payments API](https://pin.net.au/developers/api-reference)
+simple-pin is an isomorphic client for the [Pin Payments API](https://pin.net.au/developers/api-reference)
 
 ## install
 
 ```sh
-npm install michaelrhodes/pincore
+npm install michaelrhodes/simple-pin
 ```
 
 ## use
 
 ```js
-var pin = require('pincore')({
+var pin = require('simple-pin')({
   key: process.browser ?
     process.env.PUBLISHABLE_API_KEY :
     process.env.SECRET_API_KEY

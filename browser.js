@@ -1,10 +1,10 @@
 var jsonp = require('jsonp')
-var enc = encodeURIComponent
+var uenc = encodeURIComponent
 var keys = Object.keys
 
-module.exports = pincore
+module.exports = pin
 
-function pincore (config) {
+function pin (config) {
   config = config || {}
 
   var root = 'https://{env}api.pin.net.au/{version}'
@@ -28,7 +28,7 @@ function pincore (config) {
 
       body._method = method
       body.publishable_api_key = key
-      jsonp(url + '.json' + qs(body), then)
+      jsonp(url + '.json?' + enc(body), then)
       
       function then (err, json) {
         err ? cb(err) : json && json.error ?
@@ -39,10 +39,10 @@ function pincore (config) {
   }
 }
 
-function qs (obj) {
-  return '?' + keys(obj).map(function (key) {
+function enc (obj) {
+  return keys(obj).map(function (key) {
     return [].concat(obj[key]).map(function (val) {
-      return enc(key) + '=' + enc(val)
+      return uenc(key) + '=' + uenc(val)
     }).join('&')
   }).join('&')
 }

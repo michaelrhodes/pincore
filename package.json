@@ -1,7 +1,7 @@
 {
-  "name": "pincore",
+  "name": "simple-pin",
   "version": "0.0.0",
-  "description": "a simple isomorphic client for the pin payments api",
+  "description": "an isomorphic client for the pin payments api",
   "main": "node.js",
   "browser": "browser.js",
   "dependencies": {

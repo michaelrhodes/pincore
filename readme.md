@@ -5,7 +5,7 @@ simple-pin is an isomorphic client for the [Pin Payments API](https://pin.net.au
 ## install
 
 ```sh
-npm install michaelrhodes/simple-pin
+npm install michaelrhodes/simple-pin#1.0.0
 ```
 
 ## use
